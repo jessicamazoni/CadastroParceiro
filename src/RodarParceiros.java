@@ -1,4 +1,3 @@
-package parceiros;
 
 import parceiros.impl.PessoaImpl;
 import parceiros.interfaces.EmpresaInt;
