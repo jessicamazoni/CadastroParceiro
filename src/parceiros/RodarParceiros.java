@@ -1,11 +1,12 @@
+package parceiros;
 
-import parceiros.impl.PessoaImpl;
+import parceiros.impl.EmpresaImpl;
 import parceiros.interfaces.EmpresaInt;
 
 public class RodarParceiros {
 
 	public static void main(String[] args) {
-		EmpresaInt empInt = new PessoaImpl();
+		EmpresaInt empInt = new EmpresaImpl();
 		empInt.cadastro();
 	}
 }
