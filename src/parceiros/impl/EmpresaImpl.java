@@ -7,11 +7,11 @@ import parceiros.domain.Empresa;
 import parceiros.interfaces.EmpresaInt;
 import parceiros.interfaces.ParceiroInt;
 
+//Implementando interface EmpresaInt na classe EmpresaImpl.
 public class EmpresaImpl implements EmpresaInt {
 
 	private ParceiroInt parceiroInt = new ParceiroImpl();
 
-	// List é uma interface e o ArrayList é a classe que a implementa.
 	@Override
 	public void cadastro() {
 		List<Empresa> listEmpresa = new ArrayList<Empresa>();
@@ -34,7 +34,7 @@ public class EmpresaImpl implements EmpresaInt {
 				e.setCnpj(Keyin.inString("DIGITE O CNPJ: "));
 				e.setRamoAtividade(Keyin.inString("DIGITE O RAMO DA ATIVIDADE: "));
 				e.setQuantidadeFuncionario(Keyin.inInt("DIGITE A QUANTIDADE DE FUNCIONARIO PARCEIRO: "));
-				e.setContatoFuncionario(Keyin.inString("DIGITE O CONTATO DO FUNCIONARIO: "));
+				e.setContatoFuncionario(Keyin.inString("DIGITE O CONTATO DO PARCEIRO: "));
 				e.setValorHora(Keyin.inDouble("DIGITE O VALOR POR HORA: "));
 				System.out.println ("\nDIGITE O TIPO DE PARCEIRO CONFORME LISTADO:");
 				e.setTipoParceiro(Keyin.inInt(" DESENVOLVIMENTO(1), INFRAESTRUTURA(2), VENDAS(3), CONTABILIDADE(4)"));
@@ -45,7 +45,7 @@ public class EmpresaImpl implements EmpresaInt {
 				
 				//Independente do tipo de parceiro escolhido, o menu parceiro vai apresentar a opcao de cadastrar outra empresa.
 				System.out.println(" ______________________________________");
-				System.out.println("|             MENU PARCEIRO            |");
+				System.out.println("|                  MENU                |");
 				System.out.println("|--------------------------------------|");
 				System.out.println("| OPCOES:                              |");
 				System.out.println("|   1. CADASTRO EMPRESA                |");
@@ -84,9 +84,6 @@ public class EmpresaImpl implements EmpresaInt {
 				}
 			} while (swValue == 1);
 			
-			// A empresa so e cadastrada com sucesso apos ter cadastrado pelo menos um parceiro.
-			System.out.println("\n\n\n*************** CADASTRO REALIZADO COM SUCESSO! ****************\n\n\n");
-
 			//Mostra menu da empresa apos cadastrar pelo menos um parceiro para a empresa cadastrada antes.
 			do {
 				System.out.println(" _________________________________");
@@ -112,11 +109,12 @@ public class EmpresaImpl implements EmpresaInt {
 						System.out.println("CNPJ: " + e.getCnpj() +"\n");
 						System.out.println("Ramo da atividade: " + e.getRamoAtividade() +"\n");
 						System.out.println("Quantidade de funcionario parceiro: " + e.getQuantidadeFuncionario() +"\n");
-						System.out.println("Contato do funcionario: " + e.getContatoFuncionario() +"\n");
+						System.out.println("Contato do parceiro: " + e.getContatoFuncionario() +"\n");
 						System.out.println("Valor por hora: " + e.getValorHora() +"\n");
 						System.out.println("\n*****************************************************\n");
 					}
 				}
+		
 				//Se swValue receber 1, o usuario ira editar a empresa desejada.
 				else if(swValue == 1) {
 					String nomeEmpresa = Keyin.inString("DIGITE O NOME DA EMPRESA QUE DESEJA ALTERAR: ");
@@ -128,10 +126,10 @@ public class EmpresaImpl implements EmpresaInt {
 						}
 					}
 					if(altSucess) {
-						System.out.println("\n***************NOME DA EMPRESA ALTERADO COM SUCESSO***************\n");
+						System.out.println("\n*************** NOME DA EMPRESA ALTERADO COM SUCESSO ***************\n");
 					} 
 					else {
-						System.out.println("\n***************EMPRESA NAO EXISTE***************\n");
+						System.out.println("\n*************** EMPRESA NAO EXISTE ***************\n");
 					}
 				} 
 				//Se swValue receber 2, o usuario ira excluir a empresa desejada.
@@ -146,9 +144,9 @@ public class EmpresaImpl implements EmpresaInt {
 						}
 					}
 					if(altSucess) {
-						System.out.println("\n***************EMPRESA EXCLUIDA COM SUCESSO***************\n");
+						System.out.println("\n*************** EMPRESA EXCLUIDA COM SUCESSO ***************\n");
 					} else {
-						System.out.println("\n***************EMPRESA NAO EXISTE***************\n");
+						System.out.println("\n*************** EMPRESA NAO EXISTE ***************\n");
 					}
 				}
 				//Se swValue receber 4, 5 ou 6 o sistema mostrara o metodo escolhido.
@@ -166,27 +164,25 @@ public class EmpresaImpl implements EmpresaInt {
 	@Override
 	public void trataAcao(int acao) {
 		if( acao == 4) {
-			System.out.println("\n FATURA GERADA COM SUCESSO");
+			System.out.println("\n *************** FATURA GERADA COM SUCESSO ***************");
 		}
 		else if (acao == 5) {
-			System.out.println("\n FUNCIONARIO ALOCADO COM SUCESSO");
+			System.out.println("\n *************** FUNCIONARIO ALOCADO COM SUCESSO ***************");
 		}
 		else {
-			System.out.println("\n FUNCIONARIO LIBERADO COM SUCESSO");
+			System.out.println("\n *************** FUNCIONARIO LIBERADO COM SUCESSO ***************");
 		}
 	}
 }
 
 
 class Keyin {
-	//Method to display the user's prompt string
+	//Método para exibir a string de prompt do usuário
 	public static void printPrompt(String prompt) {
 		System.out.print(prompt + " ");
 		System.out.flush();
 	}
 
-	//Method to make sure no data is available in the
-	//input stream
 	public static void inputFlush() {
 		@SuppressWarnings("unused")
 		int dummy;
@@ -211,7 +207,7 @@ class Keyin {
 				if (aChar < 0 || (char) aChar == '\n')
 					finished = true;
 				else if ((char) aChar != '\r')
-					s = s + (char) aChar; // Enter into string
+					s = s + (char) aChar; 
 			}
 
 			catch (java.io.IOException e) {

@@ -6,7 +6,7 @@ import java.util.List;
 import parceiros.domain.Empresa;
 import parceiros.interfaces.ParceiroInt;
 
-//Fazendo chamada para implementar a interface Perceiro.
+//Implementando interface ParceiroInt na classe ParceiroImpl.
 public class ParceiroImpl implements ParceiroInt {
 
 	@Override
@@ -120,11 +120,16 @@ public class ParceiroImpl implements ParceiroInt {
 				System.out.println("|_________________________________________|");
 				swValue = Keyin.inInt("\n SELECIONE A OPCAO: ");
 				
+				//Adiciona LINUX se opcao 1 for escolhida.
 				if(swValue == 1) {
 					listSistemaSuporte.add("LINUX");
-				} else if (swValue == 2){
+				} 
+				//Adiciona WINDOWS se opcao 2 for escolhida.
+				else if (swValue == 2){
 					listSistemaSuporte.add("WINDOWS");
-				}else if (swValue == 3) {
+				}
+				//Adiciona MAC OS se opcao 3 for escolhida.
+				else if (swValue == 3) {
 					listSistemaSuporte.add("MAC OS");
 				}
 				
@@ -155,11 +160,16 @@ public class ParceiroImpl implements ParceiroInt {
 				System.out.println("|_________________________________|");
 				swValue = Keyin.inInt("\n SELECIONE A OPCAO: ");
 				
+				//Adiciona STORAGE se opcao 1 for escolhida.
 				if(swValue == 1) {
 					listEquipamentosNecessarios.add("STORAGE");
-				} else if (swValue == 2){
+				}
+				//Adiciona COMPUTADOR se opcao 2 for escolhida.
+				else if (swValue == 2){
 					listEquipamentosNecessarios.add("COMPUTADOR");
-				}else if (swValue == 3) {
+				}
+				//Adiciona SWITCH se opcao 3 for escolhida.
+				else if (swValue == 3) {
 					listEquipamentosNecessarios.add("SWITCH");
 				}
 				
@@ -222,7 +232,8 @@ public class ParceiroImpl implements ParceiroInt {
 		}else if (tipoParceiro == 4) {
 			empresa.setValorCobradoMes(Keyin.inDouble("DIGITE O VALOR COBRADO NO MES: "));
 		}
-		System.out.println("\n\n\n*************** CADASTRO PARCEIRO REALIZADO COM SUCESSO! ****************\n\n\n");
+		System.out.println("\n\n\n*************** CADASTRO EMPRESA REALIZADO COM SUCESSO! ****************\n\n");
+		System.out.println("\n\n*************** CADASTRO PARCEIRO REALIZADO COM SUCESSO! ****************\n\n\n");
 	}
 
 	//Sobrescrevendo metodo trataAcao do parceiro.
@@ -232,29 +243,29 @@ public class ParceiroImpl implements ParceiroInt {
 		//Se parceiro for Dev.
 		if(tipoParceiro == 1) {
 			if(acao == 2) {
-				System.out.println("\n MVP ENTREGUE COM SUCESSO \n");
+				System.out.println("\n *************** MVP ENTREGUE COM SUCESSO ***************\n");
 			} 
 			else {
-				System.out.println("\n PROJETO FINALIZADO COM SUCESSO \n");
+				System.out.println("\n *************** PROJETO FINALIZADO COM SUCESSO ***************\n");
 			}
 		}
 		//Se parceiro for Infra.
 		else if(tipoParceiro == 2) {
 			if(acao == 2) {
-				System.out.println("\n EQUIPAMENTO TROCADO COM SUCESSO \n");
+				System.out.println("\n *************** EQUIPAMENTO TROCADO COM SUCESSO ***************\n");
 			} 
 			else {
-				System.out.println("\n SISTEMA ADMINISTRADO COM SUCESSO \n");
+				System.out.println("\n *************** SISTEMA ADMINISTRADO COM SUCESSO ***************\n");
 			}
 		}
 		//Se parceiro for Contabilidade.
 		if(tipoParceiro == 4) {
 			if(acao == 2) {
-				System.out.println("\n NOTA FISCAL GERADA COM SUCESSO \n");
+				System.out.println("\n *************** NOTA FISCAL GERADA COM SUCESSO ***************\n");
 			} else if (acao == 3){
-				System.out.println("\n IMPOSTOS PAGOS COM SUCESSO \n");
+				System.out.println("\n *************** IMPOSTOS PAGOS COM SUCESSO ***************\n");
 			}else {
-				System.out.println("\n PARCEIROS PAGOS COM SUCESSO \n");
+				System.out.println("\n *************** PARCEIROS PAGOS COM SUCESSO ***************\n");
 			}
 		}
 	}
